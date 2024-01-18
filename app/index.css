@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@layer base {
+  :root {
+    --toastify-color-light: #fff;
+    --toastify-color-dark: #121212;
+    --toastify-color-info: #3498db;
+    --toastify-color-success: theme(colors.green.800);
+    --toastify-color-warning: #f1c40f;
+    --toastify-color-error: theme(colors.red.800);
+    --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+    --toastify-icon-color-info: var(--toastify-color-info);
+    --toastify-icon-color-success: theme(colors.green.800);
+    --toastify-icon-color-warning: var(--toastify-color-warning);
+    --toastify-icon-color-error: theme(colors.red.800);
+
+    --toastify-toast-width: 320px;
+    --toastify-toast-background: #fff;
+    --toastify-toast-min-height: 70px;
+    --toastify-toast-max-height: 800px;
+    --toastify-z-index: 9999;
+    --toastify-font-family: theme(fontFamily.poppins);
+
+    --toastify-text-color-light: #757575;
+    --toastify-text-color-dark: #fff;
+
+    --toastify-text-color-info: #fff;
+    --toastify-text-color-success: #fff;
+    --toastify-text-color-warning: #fff;
+    --toastify-text-color-error: #fff;
+    --toastify-spinner-color: #616161;
+    --toastify-spinner-color-empty-area: #e0e0e0;
+  }
+  .Toastify__toast-icon {
+    @apply [&_svg]:!w-7 !important;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    color: white !important;
+    background: transparent !important;
+    transition: background 50000s ease-in, color 50000s ease-in;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+    -webkit-appearance: none;
+    display: none;
+  }
+  input[type='number'] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+  }
+
+  * {
+    box-sizing: border-box;
+    font-weight: 400;
+  }
+  tbody {
+    display: block;
+    max-height: 320px;
+    overflow: auto;
+  }
+  svg {
+    color: inherit;
+    font-size: inherit;
+  }
+  thead,
+  tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  th {
+    @apply py-4 px-2 text-14 font-semibold first:text-left;
+  }
+  td {
+    @apply align-sub py-3 px-2 text-13 first:text-left;
+  }
+  html {
+    @apply text-base;
+  }
+  body {
+    @apply font-poppins font-normal text-14 text-black;
+  }
+  p {
+    @apply leading-6;
+  }
+}
+
+@layer components {
+  .heading-2 {
+    @apply text-30 font-semibold;
+  }
+  .heading-3 {
+    @apply font-semibold text-23 md:text-26 leading-8;
+  }
+  .heading-4 {
+    @apply font-semibold text-16 md:text-20 lg:text-22 leading-8;
+  }
+  .heading-5 {
+    @apply font-semibold text-16 md:text-18 lg:text-19 leading-7;
+  }
+  .heading-6 {
+    @apply font-semibold text-20  leading-7;
+  }
+  select {
+    @apply outline-none z-[2] relative border-none bg-transparent appearance-none pr-6  outline-0 focus:outline-0 ring-0 focus:ring-0;
+  }
+  .form-select-custom {
+    @apply h-[45px]   rounded-md w-full;
+  }
+  .form-select-custom select {
+    @apply h-full w-full pl-4;
+  }
+  .form-select {
+    @apply h-[45px] appearance-none font-normal border border-zinc-300 text-black px-4 py-[24px] pr-8 rounded-md  outline-0 focus:outline-0 ring-0 focus:ring-0;
+  }
+  .label {
+    @apply font-semibold text-14;
+  }
+  .label-sm {
+    @apply text-12 font-medium;
+  }
+  .form-input {
+    @apply h-[45px] border font-normal border-zinc-300 text-black px-4 py-2 rounded-md  outline-0 focus:outline-0 ring-0 focus:ring-0;
+  }
+
+  .ax-center {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+  .ay-center {
+    @apply absolute top-1/2 -translate-y-1/2;
+  }
+  .a-center {
+    @apply absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2;
+  }
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+  .btn {
+    @apply text-12 md:text-14 lg:text-16 text-white font-medium py-[10px] px-2 lg:px-6 min-w-[80px] rounded-md h-[35px] md:h-[45px] gap-2 flex-center;
+  }
+  .btn-lg {
+    @apply h-[50px] px-4;
+  }
+  .btn-sm {
+    @apply h-[40px] py-2 px-4 text-14 font-semibold;
+  }
+  .btn-outline-secondary {
+    @apply border border-zinc-400 hover:border-primary-100;
+  }
+  .btn-primary {
+    @apply bg-primary-400;
+  }
+  .btn-secondary {
+    @apply bg-primary-300;
+  }
+  .btn-black {
+    @apply bg-black rounded-md hover:bg-primary-btn-hover-black active:bg-primary-btn-hover-black;
+  }
+
+  .btn-red {
+    @apply bg-red-500 rounded-md hover:bg-red-600 active:bg-red-600;
+  }
+
+  .btn-outline-white {
+    @apply border border-white;
+  }
+  .btn-outline-gray {
+    @apply border border-zinc-300 !text-black hover:border-zinc-500 rounded-md;
+  }
+
+  .user-login-left {
+    @apply flex justify-center items-center w-full md:w-1/2 lg:mx-0 px-4 md:mx-auto;
+  }
+
+  .center-section {
+    @apply max-w-5xl mx-auto;
+  }
+
+  input[type='checkbox'] {
+    @apply w-5 h-5 accent-primary-100 rounded-md;
+  }
+  input[type='radio'] {
+    @apply w-5 h-5 accent-primary-100 text-primary-300;
+  }
+}
+
+@layer utilities {
+  .min-h-screen {
+    min-height: 100svh !important;
+    min-height: 100svh !important;
+  }
+  .h-screen {
+    height: 100svh !important;
+  }
+}
+
+.stripes {
+  position: relative;
+  background-size: 8px 8px;
+  background-image: linear-gradient(
+    45deg,
+    transparent 46%,
+    #d5d7da 49%,
+    #d5d7da 51%,
+    transparent 55%
+  );
+  background-color: #f2f2f7;
+  transition-timing-function: ease-in-out;
+}
